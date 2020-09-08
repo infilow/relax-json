@@ -39,7 +39,7 @@ Version is defined as `2.11.0-0`, `2.11.0` is the jackson release version, `-0` 
 ### Version
 
 1. Increase build version: `bash version.sh -b`
-2. Chanbe jackson release version: `bash version.sh 2.11.0`
+2. Change jackson release version: `bash version.sh 2.11.0`
 
 ### Release
 
