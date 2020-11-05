@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind._
 import com.infilos.relax.json.JsonSerdes
 
 /**
-  * @author zhiguang.zhang on 2020-11-05.
+  * @author infilos on 2020-11-05.
   *
   */
 case class Domain(name: String, value: String)

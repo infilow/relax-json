@@ -4,7 +4,7 @@ import com.infilos.relax.{Domain, Json4s}
 import org.junit.Test
 
 /**
-  * @author zhiguang.zhang on 2020-11-05.
+  * @author infilos on 2020-11-05.
   *
   */
 class JsonSerdesTest {
