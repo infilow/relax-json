@@ -13,11 +13,12 @@ where :
 }
 
 increase_build() {
-  eval "mvn build-helper:parse-version versions:set -DnewVersion='\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-\${parsedVersion.nextBuildNumber}' versions:commit"
+  eval "mvn build-helper:parse-version versions:set -DnewVersion='\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-\${parsedVersion.nextBuildNumber}' -DgenerateBackupPoms=false versions:commit"
 }
 
 update_jackson() {
   eval "mvn versions:set-property -Dproperty=jackson.version -DnewVersion=${JACKSON_V} versions:commit"
+  eval "mvn versions:set -DnewVersion=${JACKSON_V}-0 -DprocessAllModules -DgenerateBackupPoms=false versions:commit"
 }
 
 if [[ ($# -eq 1) && ($1 == "-b") ]]; then
