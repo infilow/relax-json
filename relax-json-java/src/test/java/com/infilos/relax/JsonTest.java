@@ -2,6 +2,7 @@ package com.infilos.relax;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.NullNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
 
@@ -41,7 +42,7 @@ public class JsonTest {
 
         @Override
         public boolean equals(Object object) {
-            if (object==this) return true;
+            if (object == this) return true;
             if (!(object instanceof User)) return false;
 
             User other = (User) object;
@@ -150,7 +151,7 @@ public class JsonTest {
     @Test
     public void testJsonBytes() throws IOException {
         byte[] bytes = Json.underMapper().writeValueAsBytes(
-            Json.underMapper().readTree("{\"name\":\"Anna\"}")
+                Json.underMapper().readTree("{\"name\":\"Anna\"}")
         );
 
         Json json = Json.from("{\"name\":\"Anna\"}");
@@ -253,5 +254,12 @@ public class JsonTest {
         assertEquals(Json.from(string), Json.from(string));
 
         assertNotEquals(Json.from(string), Json.from("{\"name\":\"Sala\"}"));
+    }
+
+    @Test
+    public void testNodes() {
+        assertEquals(NullNode.instance, Json.createNullNode());
+        assertEquals("[ ]", Json.from(Json.createArrayNode()).asPrettyString());
+        assertEquals("{ }", Json.from(Json.createObjectNode()).asPrettyString());
     }
 }

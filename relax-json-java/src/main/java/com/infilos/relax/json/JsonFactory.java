@@ -4,9 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
+import com.fasterxml.jackson.databind.node.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 
@@ -26,12 +24,16 @@ public interface JsonFactory {
 
     ObjectMapper underMapper();
 
-    default ObjectNode createObjectNode() {
-        return underMapper().createObjectNode();
+    default NullNode createNullNode() {
+        return NullNode.getInstance();
     }
 
-    default ArrayNode createArrayBode() {
+    default ArrayNode createArrayNode() {
         return underMapper().createArrayNode();
+    }
+
+    default ObjectNode createObjectNode() {
+        return underMapper().createObjectNode();
     }
 
     default <T> TypeReference<T> createTypeReference() {

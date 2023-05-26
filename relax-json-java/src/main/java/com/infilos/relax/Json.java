@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.*;
 import com.infilos.relax.json.JsonException;
 import com.infilos.relax.json.JsonFactory;
 import com.infilos.relax.json.JsonMappers;
@@ -18,8 +18,8 @@ import java.util.Objects;
  */
 
 public final class Json extends JsonMappers {
-    private JsonNode jsonNode;
-    private ObjectMapper mapper;
+    private final JsonNode jsonNode;
+    private final ObjectMapper mapper;
 
     public Json(ObjectMapper mapper, JsonNode node) {
         this.mapper = mapper;
@@ -140,6 +140,14 @@ public final class Json extends JsonMappers {
         return Factory.underMapper();
     }
 
+    public static JsonNode createNullNode() {
+        return NullNode.getInstance();
+    }
+
+    public static ArrayNode createArrayNode() {
+        return Factory.createArrayNode();
+    }
+
     public static ObjectNode createObjectNode() {
         return Factory.createObjectNode();
     }
@@ -165,6 +173,10 @@ public final class Json extends JsonMappers {
     }
 
     public static Json blankArray() {
+        return Factory.blankArray();
+    }
+
+    public static Json blankArrayNode() {
         return Factory.blankArray();
     }
 
