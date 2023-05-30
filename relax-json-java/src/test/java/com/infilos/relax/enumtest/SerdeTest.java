@@ -30,7 +30,7 @@ public class SerdeTest {
         System.out.println(decoded);
     }
 
-    public Module buildModule() {
+    private com.fasterxml.jackson.databind.Module buildModule() {
         SimpleModule module = new SimpleModule();
         module.setDeserializerModifier(new BeanDeserializerModifier() {
             @Override
