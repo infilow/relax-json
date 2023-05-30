@@ -6,12 +6,15 @@
 
     <groupId>com.infilos</groupId>
     <artifactId>relax-json</artifactId>
-    <version>2.13.3-0</version>
+    <version>2.15.0-0</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>relax-json-java</module>
         <module>relax-json-scala</module>
+        <module>relax-json-flat</module>
+        <module>relax-json-logic</module>
+        <module>relax-json-schema</module>
     </modules>
 
     <properties>
@@ -22,9 +25,9 @@
         <java.version>1.8</java.version>
         <scala.version>2.12.11</scala.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <jackson.version>2.13.3</jackson.version>
+        <jackson.version>2.15.0</jackson.version>
         <lang3.version>3.12.0</lang3.version>
-        <text.version>1.9</text.version>
+        <text.version>1.10.0</text.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -61,6 +64,26 @@
                 <version>${jackson.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-csv</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-opengis</artifactId>
+                <version>25.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-geometry</artifactId>
+                <version>24.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.infilos</groupId>
+                <artifactId>relax-utils</artifactId>
+                <version>0.13.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${lang3.version}</version>
@@ -71,12 +94,55 @@
                 <version>${text.version}</version>
             </dependency>
             <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+                <version>1.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>1.8</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.15</version>
+            </dependency>
+            <dependency>
+                <groupId>com.networknt</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>1.0.70</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>30.0-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>de.siegmar</groupId>
+                <artifactId>fastcsv</artifactId>
+                <version>2.2.0</version>
+            </dependency>
+            
+            
+            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>osgeo.org</id>
+            <url>https://repo.osgeo.org/repository/release/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
