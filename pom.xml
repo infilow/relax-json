@@ -6,7 +6,7 @@
 
     <groupId>com.infilos</groupId>
     <artifactId>relax-json</artifactId>
-    <version>2.15.0-5</version>
+    <version>2.15.0-6</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -315,7 +315,7 @@
                             <jreleaser>
                                 <release>
                                     <github>
-                                        <overwrite>update</overwrite>
+                                        <overwrite>true</overwrite>
                                     </github>
                                 </release>
                             </jreleaser>
